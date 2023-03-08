@@ -16,18 +16,12 @@ always begin
     #1 clk = ~clk;
 end
 
-/*
-*   Problem 2/3:
-*   Make an instance of your new module clk_div.
-*   Create approprite wires to test it.
-*/
+wire clk1;
+clk_div #(.X(6)) clk_div(.clk(clk), .clk_out(clk1));
 
 initial begin
     $dumpvars;      /* Open for dump of signals */
-    /*
-    *   Problem 2/3:
-    *   Stop simulation after several cycles of your (divided) clock.
-    */
+    #50 $finish;
 end
 
 endmodule

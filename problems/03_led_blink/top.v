@@ -18,12 +18,6 @@ module top(
 
 assign {DS_EN1, DS_EN2, DS_EN3, DS_EN4} = 4'b1111;
 
-/*
-*   Problem 1/:
-*   Make an instance of the parametrized clock divider module (clk_div)
-*   written in the previous problem set.
-*   Connect CLK to the input and DS_C to the output of the divider.
-*   Choose any value of parameter X in range [11; 14].
-*/
+clk_div #(.X(12)) clk_div(.clk(CLK), .clk_out(DS_C));
 
 endmodule

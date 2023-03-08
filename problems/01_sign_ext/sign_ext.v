@@ -4,9 +4,8 @@ module sign_ext(
     output [31:0]ext_imm
 );
 
-/*
-*   Problem 4:
-*   Describe sign extension logic.
-*/
+wire msb = imm[11];
+wire [19:0]msb_x20 = {20{msb}};
+assign ext_imm = {msb_x20, imm};
 
 endmodule

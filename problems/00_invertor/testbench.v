@@ -17,18 +17,11 @@ always begin
 end
 
 wire clk1; /* For output of tested module */
+wire clk2;
 
 pset00_test pset00_test(.in(clk), .out(clk1)); /* Tested module instance */
+pset00_invertor pset00_invertor(.in(clk), .out(clk2));
 
-/*
-*   Problem 3/5:
-*   add wire for pset00_invertor output
-*/
-
-/*
-*   Problem 3/5:
-*   add instance of pset00_invertor here
-*/
 
 initial begin
     $dumpvars;      /* Open for dump of signals */
