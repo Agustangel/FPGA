@@ -3,7 +3,7 @@ PSET := pset04
 test: $(PSET)
 	./$(PSET)
 
-$(PSET): testbench.v top.v clk_div.v hex_display.v
+$(PSET): testbench.v top.v clk_div.v hex_display.v hex_to_seg.v
 	iverilog $^ -o $@
 
 clean:

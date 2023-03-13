@@ -1,19 +1,16 @@
 
-module clk_div #(parameter X = 4)(
+module clk_div(
     input clk,
 
     output clk_out
 );
 
-reg [X-1:0]cnt = 0;
+reg [25:0]cnt = 0;
 
-assign clk_out = (cnt == X);
+assign clk_out = cnt[25];
 
 always @(posedge clk)begin
-    if (clk_out)
-        cnt <= 0;
-    else
-        cnt <= cnt + 1;
+    cnt <= cnt + 26'b1;
 end
 
 endmodule

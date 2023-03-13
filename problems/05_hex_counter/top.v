@@ -14,8 +14,12 @@ assign {DS_A, DS_B, DS_C, DS_D, DS_E, DS_F, DS_G} = segments;
 wire [15:0]data; /* Data bus */
 wire clk1, clk2; /* Clocks */
 
-/*
-*   Instantiate hex display driver, 16-bit counter and two clock dividers here
-*/
+
+clk_div clk_div_1(.clk(CLK), .clk_out(clk1));
+
+clk_div clk_div_2(.clk(CLK), .clk_out(clk2));
+counter counter(.clk(clk2), .q(data));
+
+hex_display disp(.clk(clk1), .data(data), .anodes(anodes), .segments(segments));
 
 endmodule

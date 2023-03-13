@@ -10,10 +10,11 @@
 
 module testbench();
 
-/*
-*   Problem 5/7:
-*   Create a clock.
-*/
+reg clk = 1'b0;
+
+always begin
+    #1 clk = ~clk;
+end
 
 top top(clk, DS_EN1, DS_EN2, DS_EN3, DS_EN4, DS_A, DS_B, DS_C, DS_D, DS_E, DS_F, DS_G);
 

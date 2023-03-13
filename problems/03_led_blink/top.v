@@ -18,6 +18,7 @@ module top(
 
 assign {DS_EN1, DS_EN2, DS_EN3, DS_EN4} = 4'b1111;
 
-clk_div #(.X(12)) clk_div(.clk(CLK), .clk_out(DS_C));
+clk_div clk_div(.clk(CLK), .clk_out(DS_C));
+
 
 endmodule

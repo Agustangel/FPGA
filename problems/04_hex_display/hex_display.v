@@ -6,31 +6,17 @@ module hex_display(
     output [6:0]segments
 );
 
-/*
-*   Problem 3/7:
-*   Write logic for dynamic indication here.
-*/
+
+reg [1:0]i = 0;
+
+assign anodes = (4'b1 << i);
+
+wire [3:0]b = data[i * 4 +: 4];
+
+always @(posedge clk) begin
+    i <= i + 2'b1;
+end
 
 hex_to_seg hex_to_seg(.data(b), .segments(segments));
-
-endmodule
-
-module hex_to_seg(
-    input [3:0]data,
-
-    output reg [6:0]segments
-);
-
-always @(*) begin
-    case (data)          /* abcdefg */
-        4'h0: segments = 7'b1111110;
-        4'h1: segments = 7'b0110000;
-        /*
-        *   Problem 2/7:
-        *   Write logic for missing digits (0x2-0xE) here.
-        */
-        4'hF: segments = 7'b1000111;
-    endcase
-end
 
 endmodule
